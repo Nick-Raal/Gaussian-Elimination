@@ -49,8 +49,9 @@ std::deque<float> solve(std::array<std::array<float, 3>, 3> a, float constants[3
     solutions.push_front(constants[a.size() - 1]);
     for (int i = a.size() - 2; i >=0; i--) {
         float sum = 0;
-        for (int j = 0; j < a[i].size(); j++) {
-            sum += a[i][j] * solutions.front();
+        for (int j = i + 1, n = 0; j < a[i].size(); j++) {
+            sum += a[i][j] * solutions[n];
+            n++;
         }
         solutions.push_front(constants[i]/sum);
     }
@@ -65,8 +66,9 @@ int main() {
       {10, 8, 6}
     } };
     gauss(a);
-    std::deque<float> solutions = solve(a, constants);
     printArr(a);
+    std::deque<float> solutions = solve(a, constants);
+    
     std::cout << "Solutions: ";
     printArr(solutions);
     
