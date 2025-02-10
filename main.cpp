@@ -63,10 +63,7 @@ void gauss(std::array<std::array<float, 3>, 3>& a, float constants[3]) {
 }
 
 std::deque<float> solve(std::array<std::array<float, 3>, 3> a, float constants[3]) {
-    //std::cout << "constants: \n";
-    //for (int i = 0; i < 3; i++) {
-    //    std::cout<<" "<< constants[i];
-    //}
+
     std::cout << "\n";
     std::deque<float> solutions;
     solutions.push_front(constants[a.size() - 1]/a[a.size() - 1][a.size() - 1]);
