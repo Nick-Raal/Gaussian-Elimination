@@ -10,15 +10,25 @@ using namespace std;
 void printArr(std::array<std::array<float, 3>, 3> a) {
     for (int i = 0; i < a.size(); i++) {
         for (int j = 0; j < a[i].size(); j++) {
-            std::cout << std::fixed << std::setprecision(2) << a[i][j] << " ";
+            std::cout << std::fixed << std::setprecision(2) << a[i][j];
         }
         std::cout << "\n";
     }
 }
+
+void printArr(std::array<std::array<float, 3>, 3> a, float consts[]) {
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j < a[i].size(); j++) {
+            std::cout << std::fixed << std::setprecision(2) << setw(7)<<a[i][j] << " ";
+        }
+        std::cout << " | " << setw(5) << consts[i] << "\n";
+    }
+}
+
 void printArr(std::deque<float> d) {
     std::cout /* << std::fixed << std::setprecision(2)*/ << "\n";
     for (int i = 0; i < d.size(); i++) {
-        std::cout <<"x"<<i<<": " << d[i] << "\n";
+        std::cout <<"x"<<i<<":"<<setw(5) << d[i] << "\n";
     }
 }
 
@@ -80,7 +90,7 @@ int main() {
       {10, 8, 6}
     } };
     gauss(a, constants);
-    printArr(a);
+    printArr(a, constants);
     std::deque<float> solutions = solve(a, constants);
     
     std::cout << "Solutions: ";
