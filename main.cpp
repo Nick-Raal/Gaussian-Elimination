@@ -18,7 +18,7 @@ void printArr(std::array<std::array<float, 3>, 3> a) {
 void printArr(std::deque<float> d) {
     std::cout /* << std::fixed << std::setprecision(2)*/ << "\n";
     for (int i = 0; i < d.size(); i++) {
-        std::cout << d[i] << " ";
+        std::cout <<"x"<<i<<": " << d[i] << "\n";
     }
 }
 
@@ -36,7 +36,7 @@ void rowOp(std::array<std::array<float, 3>, 3>& a, int r, int r1, float m, float
     } 
     constants[r] = std::round(std::round((constants[r] - constants[r1] * m) * 1000.f) / 10.f) / 100.f;
     //std::cout<<"const: " << constants[r] << "\n";
-    printArr(a);
+    //printArr(a);
 }
     
 
@@ -45,7 +45,7 @@ void gauss(std::array<std::array<float, 3>, 3>& a, float constants[3]) {
     std::vector<float> sol;
     for (int i = 1; i < a.size(); i++) {
         for (int j = 0; j <= i-1; j++) {
-            std::cout << (a[i][j] / a[j][j]) << "\n";
+            //std::cout << (a[i][j] / a[j][j]) << "\n";
             rowOp(a, i, j, a[i][j]/a[j][j], constants);
         }
         //rowOp(a, i, 1 / a[i][i], constants);
@@ -53,10 +53,10 @@ void gauss(std::array<std::array<float, 3>, 3>& a, float constants[3]) {
 }
 
 std::deque<float> solve(std::array<std::array<float, 3>, 3> a, float constants[3]) {
-    std::cout << "constants: \n";
-    for (int i = 0; i < 3; i++) {
-        std::cout<<" "<< constants[i];
-    }
+    //std::cout << "constants: \n";
+    //for (int i = 0; i < 3; i++) {
+    //    std::cout<<" "<< constants[i];
+    //}
     std::cout << "\n";
     std::deque<float> solutions;
     solutions.push_front(constants[a.size() - 1]/a[a.size() - 1][a.size() - 1]);
