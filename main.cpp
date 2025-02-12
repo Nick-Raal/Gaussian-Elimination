@@ -27,7 +27,7 @@ void printArr(std::vector<std::vector<float>> a, float consts[]) {
 void printArr(std::deque<float> d) {
     std::cout /* << std::fixed << std::setprecision(2)*/ << "\n";
     for (int i = 0; i < d.size(); i++) {
-        std::cout <<"x"<<i+1<<":"<<setw(5) << d[i] << "\n";
+        std::cout <<"x"<<i+1<<":"<<setw(8) << d[i] << "\n";
     }
 }
 
@@ -90,13 +90,6 @@ std::deque<float> solve(std::vector<std::vector<float>> a, float constants[]) {
 }
 
 int main() {
-
-    float constants[3] = {1, 1, 1};
-    std::array<std::array<float, 3>, 3> a = { {
-      {4, 1, 3},
-      {5, 2, 9},
-      {10, 8, 6}
-    } };
 #pragma region Title
 
     std::cout << "01000111 01100001 01110101 01110011 01110011 01101001 01100001 01101110 01001101 01100001 01110100 01110010 01101001 01111000 01010011 01101111 01101100 01110110 01100101 01110010\n";
