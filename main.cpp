@@ -55,7 +55,18 @@ void gauss(std::array<std::array<float, 3>, 3>& a, float constants[3]) {
     std::vector<float> sol;
     for (int i = 1; i < a.size(); i++) {
         for (int j = 0; j <= i-1; j++) {
-            //std::cout << (a[i][j] / a[j][j]) << "\n";
+            //pivoting support
+            if (a[j][j] == 0) {
+                for (int k = j; k < a.size(); k++) {
+                    if (a[k][j] != 0) {
+                        a[k].swap(a[j]);
+                        float temp = constants[k];
+                        constants[k] = constants[j];
+                        constants[j] = temp;
+                        break;
+                    }
+                }
+            }
             rowOp(a, i, j, a[i][j]/a[j][j], constants);
         }
         //rowOp(a, i, 1 / a[i][i], constants);
